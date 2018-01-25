@@ -1,0 +1,40 @@
+{
+  "name": "learn-jest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git"
+  },
+  "author": "yeqingwen <317811448@qq.com>",
+  "license": "MIT",
+  "description": "",
+  "bugs": {
+    "url": "https://github.com/yhl-node/learn-jest/issues"
+  },
+  "homepage": "https://github.com/yhl-node/learn-jest#readme",
+  "directories": {
+    "start": "node src/index.js",
+    "lint": "eslint .",
+    "test": "jest --forceExit"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^22.1.4"
+  },
+  "dependencies": {
+    "@koa/cors": "2",
+    "config": "^1.29.2",
+    "dotenv": "^4.0.0",
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.3.0"
+  }
+}
