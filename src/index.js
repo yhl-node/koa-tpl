@@ -13,3 +13,5 @@ app.use(router.routes())
 app.use(logger())
 
 app.listen(config.server.port)
+
+module.exports = app
