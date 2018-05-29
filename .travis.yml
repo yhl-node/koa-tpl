@@ -1,0 +1,36 @@
+sudo: required
+language: node_js
+cache: yarn
+node_js:
+  - 8
+services:
+  - docker
+env:
+  - NODE_PORT=3000
+stages:
+  - test
+  - name: deploy
+    if: (branch = master) AND (type != pull_request)
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - yarn
+        - yarn lint
+        - yarn test
+    - stage: deploy
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin $DOCKER_IMG_HOST
+        - docker build --rm=false -t $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER .
+        - docker run $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER /bin/sh -c "yarn test"
+        - docker tag $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER
+        - docker tag $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:latest
+        - docker push $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:latest
+notifications:
+  email:
+    recipients:
+      - yhl@1024hw.cn
+    on_success: never # default: change
+    on_failure: always # default: always
