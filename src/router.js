@@ -1,5 +1,5 @@
-const Router = require('koa-router')
-const S1 = require('./s1/router')
+import Router from 'koa-router'
+import S1 from './s1/router'
 
 const router = new Router()
 
@@ -12,4 +12,4 @@ router.get('/', (ctx, next) => {
 
 router.use('/s1', S1.routes())
 
-module.exports = router
+export default router

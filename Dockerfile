@@ -19,3 +19,5 @@ ADD package.json .
 RUN yarn
 
 ADD . .
+
+CMD ["yarn", "start"]

@@ -1,7 +1,7 @@
-const config = require('config')
+import config from 'config'
 
 const DB = config.db
 
-module.exports = {
+export default {
   DB
 }

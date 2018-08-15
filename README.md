@@ -7,4 +7,4 @@
 - koa-logger
 - @koa/cors@2
 - config
-- dotenv
+- esm

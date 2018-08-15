@@ -1,17 +1,13 @@
 {
-  "name": "learn-jest",
+  "name": "koa-tpl",
   "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git"
   },
-  "author": "yeqingwen <317811448@qq.com>",
+  "author": "yeqingwen <yhl@1024hw.cn>",
   "license": "MIT",
   "description": "",
-  "bugs": {
-    "url": "https://github.com/yhl-node/learn-jest/issues"
-  },
-  "homepage": "https://github.com/yhl-node/learn-jest#readme",
   "directories": {
     "start": "node src/index.js",
     "lint": "eslint .",
@@ -20,19 +16,16 @@
   "scripts": {
     "test": "jest --forceExit",
     "lint": "eslint src",
-    "start": "node src/index.js"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "testEnvironment": "node",
-    "testMatch": [
-      "**/test/**/*.js"
-    ]
+    "dev": "hotnode -r esm -r dotenv/config src/index.js",
+    "start": "node -r esm src/index.js"
   },
   "standard": {
     "env": ["jest"]
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
@@ -41,12 +34,13 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^22.1.4",
+    "dotenv": "^4.0.0",
     "supertest": "^3.0.0"
   },
   "dependencies": {
     "@koa/cors": "2",
     "config": "^1.29.2",
-    "dotenv": "^4.0.0",
+    "esm": "^3.0.74",
     "koa": "^2.4.1",
     "koa-body": "^2.5.0",
     "koa-logger": "^3.1.0",
