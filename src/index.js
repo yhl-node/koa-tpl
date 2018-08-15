@@ -1,10 +1,9 @@
-require('dotenv').config()
-const Koa = require('koa')
-const config = require('config')
-const koaBody = require('koa-body')
-const logger = require('koa-logger')
-const cors = require('@koa/cors')
-const router = require('./router')
+import Koa from 'koa'
+import config from 'config'
+import koaBody from 'koa-body'
+import logger from 'koa-logger'
+import cors from '@koa/cors'
+import router from './router'
 
 const app = new Koa()
 app.use(cors())
@@ -14,4 +13,4 @@ app.use(logger())
 
 app.listen(config.server.port)
 
-module.exports = app
+export default app

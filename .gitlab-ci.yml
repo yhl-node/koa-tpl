@@ -1,0 +1,22 @@
+image: docker:latest
+services:
+  - docker:dind
+
+variables:
+  VERSION_TAG: $CI_COMMIT_TAG
+  PRO_IMAGE: $CI_REGISTRY/$CI_REGISTRY_NAME_SPACE/$CI_PROJECT_NAME
+
+before_script:
+  - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+  - docker build -t $CI_PROJECT_NAME .
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - docker tag $CI_PROJECT_NAME $PRO_IMAGE:$VERSION_TAG
+    - docker push $PRO_IMAGE:$VERSION_TAG
+  only:
+    - tags
