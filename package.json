@@ -5,17 +5,12 @@
   "repository": {
     "type": "git"
   },
-  "author": "yeqingwen <yhl@1024hw.cn>",
-  "license": "MIT",
+  "author": "yhl <yhl@1024hw.cn>",
   "description": "",
-  "directories": {
-    "start": "node src/index.js",
-    "lint": "eslint .",
-    "test": "jest --forceExit"
-  },
   "scripts": {
     "test": "jest --forceExit",
     "lint": "eslint src",
+    "lint-fix": "eslint --fix src",
     "dev": "hotnode -r esm -r dotenv/config src/index.js",
     "start": "node -r esm src/index.js"
   },
