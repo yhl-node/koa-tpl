@@ -11,8 +11,9 @@
     "test": "jest --forceExit",
     "lint": "eslint src",
     "lint-fix": "eslint --fix src",
+    "db-init": "sequelize db:migrate",
     "dev": "node -r esm -r dotenv/config --inspect-brk=9229 src/index.js",
-    "start": "node -r esm -r dotenv/config src/index.js"
+    "start": "sequelize db:migrate && node -r esm src/index.js"
   },
   "standard": {
     "env": [
@@ -42,6 +43,8 @@
     "koa-body": "^4.0.4",
     "koa-logger": "^3.1.0",
     "koa-router": "^7.3.0",
-    "winston": "^3.1.0"
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.39.1",
+    "sequelize-cli": "^5.1.0"
   }
 }
