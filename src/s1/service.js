@@ -13,7 +13,8 @@ async function index (ctx, next) {
     code: 0,
     msg: 'ok',
     data: {
-      port: config.server.port
+      port: config.server.port,
+      info: ctx.state.verify
     }
   }
   next()

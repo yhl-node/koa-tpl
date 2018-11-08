@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10-alpine
 LABEL MAINTAINER="yhl, yhl@1024hw.org"
 
 ENV TIMEZONE Asia/Shanghai
