@@ -13,7 +13,7 @@ async function index (ctx, next) {
     code: 0,
     msg: 'ok',
     data: {
-      port: config.server.port,
+      port: parseInt(config.server.port),
       info: ctx.state.verify
     }
   }
