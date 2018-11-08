@@ -1,5 +1,6 @@
 import Router from 'koa-router'
 import S1 from './s1/router'
+import verfyToken from './middleware/verify-token'
 
 const router = new Router()
 
@@ -9,6 +10,9 @@ const router = new Router()
 router.get('/', (ctx, next) => {
   ctx.body = { code: 0, status: 'ok' }
 })
+
+// middleware
+router.use(['/s1'], verfyToken())
 
 router.use('/s1', S1.routes())
 
