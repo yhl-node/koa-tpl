@@ -20,9 +20,12 @@ wss.on('connection', (ws, req) => {
   ws.on('message', (message) => {
     console.log('received: %s', message)
   })
-  ws.send('something')
+  ws.send('connected')
 })
 
 server.listen(config.server.port)
 
-export default app
+export {
+  app,
+  wss
+}
