@@ -21,27 +21,27 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.11.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^23.6.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.3.0"
   },
   "dependencies": {
     "@koa/cors": "^2.2.3",
     "config": "^3.0.1",
     "dotenv": "^6.2.0",
-    "esm": "^3.0.74",
-    "koa": "^2.4.1",
+    "esm": "^3.0.84",
+    "koa": "^2.6.2",
     "koa-body": "^4.0.6",
-    "koa-logger": "^3.1.0",
-    "koa-router": "^7.3.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
     "winston": "^3.1.0",
     "ws": "^6.1.2"
   }
