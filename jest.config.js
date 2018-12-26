@@ -8,6 +8,10 @@ module.exports = {
   transform: {
     '^.*\\.js$': 'babel-jest'
   },
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}',
+    '!<rootDir>/node_modules/'
+  ],
   coverageThreshold: {
     global: {
       branches: 70,

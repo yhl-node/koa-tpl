@@ -3,29 +3,23 @@ import config from 'config'
 import koaBody from 'koa-body'
 import logger from 'koa-logger'
 import cors from '@koa/cors'
-import WebSocket from 'ws'
 import http from 'http'
 import router from './router'
+import WS from './ws'
 
 const app = new Koa()
-
-const server = http.createServer(app.callback())
-const wss = new WebSocket.Server({ server })
 app.use(cors())
 app.use(koaBody())
 app.use(router.routes())
 app.use(logger())
 
-wss.on('connection', (ws, req) => {
-  ws.on('message', (message) => {
-    console.log('received: %s', message)
-  })
-  ws.send('connected')
-})
-
+const server = http.createServer(app.callback())
 server.listen(config.server.port)
+
+const wss = WS.start(server)
 
 export {
   app,
+  server,
   wss
 }

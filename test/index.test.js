@@ -4,7 +4,14 @@
 import mockAxios from 'axios'
 import supertest from 'supertest'
 import WebSocket from 'ws'
-import { app, wss } from '../src'
+import { app, wss, server } from '../src'
+
+beforeEach(() => { })
+afterEach(() => { })
+beforeAll(() => {})
+afterAll(() => {
+  server.close()
+})
 
 test('echo status', async () => {
   const response = await supertest(app.callback()).get('/')
