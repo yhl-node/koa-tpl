@@ -1,8 +1,9 @@
 import winston from 'winston'
 import fs from 'fs'
 import path from 'path'
+import config from 'config'
 
-const logDir = 'logs'
+const logDir = config.server.logDir
 const { combine, timestamp } = winston.format
 if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir)

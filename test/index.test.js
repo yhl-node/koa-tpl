@@ -3,12 +3,28 @@
  */
 import mockAxios from 'axios'
 import supertest from 'supertest'
-import app from '../src'
+import WebSocket from 'ws'
+import { app, wss, server } from '../src'
+
+beforeEach(() => { })
+afterEach(() => { })
+beforeAll(() => {})
+afterAll(() => {
+  server.close()
+})
 
 test('echo status', async () => {
   const response = await supertest(app.callback()).get('/')
   expect(response.status).toBe(200)
   expect(response.body).toEqual({ code: 0, status: 'ok' })
+})
+
+describe('ws service', () => {
+  test('ws default', () => {
+    const ws = new WebSocket(`ws://localhost:${wss.address().port}`)
+    ws.on('open', () => { ws.send('something') })
+    ws.on('message', (data) => { expect(data).toBe('connected') })
+  })
 })
 
 describe('s1 service', () => {

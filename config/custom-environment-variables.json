@@ -1,5 +1,6 @@
 {
   "server": {
-    "port": "NODE_PORT"
+    "port": "NODE_PORT",
+    "logDir": "LOG_DIR"
   }
 }
