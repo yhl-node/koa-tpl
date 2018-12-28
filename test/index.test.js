@@ -4,6 +4,8 @@
 import mockAxios from 'axios'
 import supertest from 'supertest'
 import WebSocket from 'ws'
+import delay from 'delay'
+import config from 'config'
 import { app, wss, server } from '../src'
 
 beforeEach(() => { })
@@ -20,10 +22,12 @@ test('echo status', async () => {
 })
 
 describe('ws service', () => {
-  test('ws default', () => {
+  test('ws default', async () => {
     const ws = new WebSocket(`ws://localhost:${wss.address().port}`)
     ws.on('open', () => { ws.send('something') })
+    ws.on('pong', () => { expect(1).toBe(1) })
     ws.on('message', (data) => { expect(data).toBe('connected') })
+    await delay(config.server.wsKeepAlive + 50)
   })
 })
 

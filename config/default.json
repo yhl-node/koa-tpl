@@ -1,6 +1,7 @@
 {
   "server": {
     "port": 3000,
-    "logDir": "logs"
+    "logDir": "logs",
+    "wsKeepAlive": 20000
   }
 }
