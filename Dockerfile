@@ -16,8 +16,8 @@ RUN apk update && \
 
 ADD package.json .
 # Install dependencies
-RUN yarn
+RUN npm install
 
 ADD . .
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
