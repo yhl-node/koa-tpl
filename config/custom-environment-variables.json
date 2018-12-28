@@ -1,6 +1,7 @@
 {
   "server": {
     "port": "NODE_PORT",
-    "logDir": "LOG_DIR"
+    "logDir": "LOG_DIR",
+    "wsKeepAlive": "WS_KEEP_ALIVE"
   }
 }

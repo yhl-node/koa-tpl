@@ -1,4 +1,5 @@
 import WebSocket from 'ws'
+import config from 'config'
 
 function heartbeat () {
   this.isAlive = true
@@ -21,7 +22,7 @@ function start (server) {
       ws.isAlive = false
       ws.ping('', false, true)
     })
-  }, 20000)
+  }, config.server.wsKeepAlive)
   return wss
 }
 
