@@ -16,9 +16,9 @@ jobs:
   include:
     - stage: test
       script:
-        - yarn
-        - yarn lint
-        - yarn test
+        - npm install
+        - npm run lint
+        - npm run test
     - stage: deploy
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin $DOCKER_IMG_HOST
